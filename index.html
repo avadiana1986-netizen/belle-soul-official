@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURELLE | Clinical Haute Skincare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #1a1a1a; --accent: #a8947e; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--primary); background: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        
+        nav { padding: 40px 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 100; background: rgba(255,255,255,0.95); border-bottom: 1px solid #f9f9f9; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 24px; letter-spacing: 5px; text-transform: uppercase; text-decoration: none; color: var(--primary); font-weight: 500; }
+        .nav-links a { margin-left: 40px; text-decoration: none; color: #666; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: #000; }
+
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 10%; position: relative; }
+        .hero-content { max-width: 600px; z-index: 2; }
+        .label { font-size: 10px; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; margin-bottom: 20px; display: block; }
+        
+        h1 { font-family: 'Playfair Display', serif; font-size: 4.2rem; font-weight: 400; line-height: 1.1; margin-bottom: 30px; letter-spacing: -1px; }
+        
+        .btn { display: inline-block; padding: 22px 50px; background: #000; color: #fff; text-decoration: none; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; transition: 0.3s; }
+        .btn:hover { background: #333; }
+
+        footer { position: absolute; bottom: 40px; left: 10%; z-index: 3; font-size: 10px; letter-spacing: 3px; color: #aaa; text-transform: uppercase; }
+        
+        .hero-img { position: absolute; right: 0; top: 0; height: 100vh; width: 50vw; object-fit: cover; opacity: 0.9; }
+
+        @media (max-width: 768px) {
+            .hero-img { width: 100%; opacity: 0.15; }
+            h1 { font-size: 3rem; }
+            nav { padding: 30px 8%; }
+            .nav-links { display: none; } /* Mobile simplification */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">AURELLE</a>
+        <div class="nav-links">
+            <a href="collection.html">The Collection</a>
+            <a href="philosophy.html">Philosophy</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <img src="https://i.postimg.cc/8chHr71F/danielapertsevaya_post_2024_9_15_16_31_073457524545080362853.jpg" class="hero-img">
+        <div class="hero-content">
+            <span class="label">Clinical Haute Skincare</span>
+            <h1>Science meets<br>Silence.</h1>
+            <a href="collection.html" class="btn">Explore The Collection</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Aurelle Laboratories. Founder: Anna Davis.
+    </footer>
+</body>
+</html>

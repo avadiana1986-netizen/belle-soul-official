@@ -3,26 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F ORGANICS USA | Pure Biological Skincare</title>
-    <!-- 引入高级字体 -->
+    <title>F ORGANICS USA | Pure Biological Ritual</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --accent-color: #a8947e;
-            --text-white: #ffffff;
-        }
-
+        :root { --accent: #c5b358; --text: #ffffff; }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            font-family: 'Inter', sans-serif; 
             background: #000; 
-            color: var(--text-white); 
-            overflow: hidden; /* 保持首屏沉浸感 */
+            font-family: 'Inter', sans-serif; 
+            color: var(--text); 
+            overflow: hidden; 
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 背景容器与呼吸感动画 */
+        /* 核心：高清图像处理容器 */
         .hero {
             height: 100vh;
             width: 100%;
@@ -31,6 +27,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            background: #000;
         }
 
         .hero-img {
@@ -40,26 +37,30 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 30%; /* 确保图片主体居中 */
+            object-position: center 25%; /* 优化视觉重心 */
             z-index: 1;
-            filter: brightness(0.85); /* 稍微调暗，提升文字可读性 */
-            animation: slowZoom 20s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
+            
+            /* 图像清晰度微调：大佬级滤镜组合 */
+            filter: brightness(0.9) contrast(1.08) saturate(1.05);
+            image-rendering: -webkit-optimize-contrast; /* 针对浏览器内核优化对比度 */
+            transform: translateZ(0); /* 开启 GPU 硬件加速 */
+            
+            animation: slowPan 25s infinite alternate ease-in-out;
         }
 
-        @keyframes slowZoom {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
+        @keyframes slowPan {
+            from { transform: scale(1) translateZ(0); }
+            to { transform: scale(1.08) translateZ(0); }
         }
 
-        /* 渐变遮罩：让底部和顶部信息更清晰 */
+        /* 渐变层：增强文字对比度并掩盖图片边缘毛刺 */
         .overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(to bottom, 
-                rgba(0,0,0,0.3) 0%, 
-                rgba(0,0,0,0) 40%, 
-                rgba(0,0,0,0) 60%, 
-                rgba(0,0,0,0.4) 100%);
+                rgba(0,0,0,0.4) 0%, 
+                rgba(0,0,0,0) 50%, 
+                rgba(0,0,0,0.5) 100%);
             z-index: 2;
         }
 
@@ -76,104 +77,117 @@
         }
 
         .logo {
-            font-size: 16px;
-            letter-spacing: 8px;
+            font-size: 15px;
+            letter-spacing: 10px;
             text-transform: uppercase;
             text-decoration: none;
-            color: var(--text-white);
+            color: #fff;
             font-weight: 300;
         }
 
         .nav-links a {
-            color: var(--text-white);
+            color: #fff;
             text-decoration: none;
             margin-left: 40px;
-            font-size: 11px;
+            font-size: 10px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            transition: 0.4s;
-            opacity: 0.8;
+            transition: 0.5s;
+            opacity: 0.7;
         }
 
-        .nav-links a:hover { opacity: 1; color: var(--accent-color); }
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
 
-        /* 中心内容 */
+        /* 内容布局 */
         .content {
             position: relative;
             z-index: 10;
             text-align: center;
-            max-width: 900px;
             padding: 0 20px;
         }
 
         .content span {
             display: block;
-            font-size: 12px;
-            letter-spacing: 10px;
+            font-size: 11px;
+            letter-spacing: 12px;
             text-transform: uppercase;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             font-weight: 200;
-            opacity: 0.9;
+            opacity: 0.8;
         }
 
         .content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6vw, 4.8rem);
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
             font-weight: 400;
             line-height: 1.1;
-            margin-bottom: 50px;
-            letter-spacing: 1px;
+            margin-bottom: 55px;
+            font-style: italic; /* 提升高级感的关键技巧 */
         }
 
+        /* 磨砂玻璃质感按钮 */
         .btn {
             display: inline-block;
-            padding: 20px 50px;
-            border: 1px solid rgba(255,255,255,0.4);
-            color: var(--text-white);
+            padding: 22px 65px;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
             text-decoration: none;
-            font-size: 11px;
-            letter-spacing: 4px;
+            font-size: 10px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-            backdrop-filter: blur(8px); /* 磨砂玻璃效果 */
-            background: rgba(255,255,255,0.05);
+            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
         }
 
         .btn:hover {
             background: #fff;
             color: #000;
             border-color: #fff;
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
-        /* 底部信息 */
+        /* 侧边装饰文本（类似顶级画册排版） */
+        .side-tag {
+            position: absolute;
+            left: 40px;
+            bottom: 100px;
+            writing-mode: vertical-lr;
+            z-index: 10;
+            font-size: 9px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.4;
+            transform: rotate(180deg);
+        }
+
         footer {
             position: absolute;
             bottom: 40px;
             width: 100%;
             text-align: center;
             z-index: 10;
-            font-size: 10px;
-            letter-spacing: 3px;
-            opacity: 0.7;
+            font-size: 9px;
+            letter-spacing: 4px;
+            opacity: 0.6;
         }
 
         footer a {
             color: #fff;
             text-decoration: none;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            padding-bottom: 3px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 4px;
             transition: 0.3s;
         }
 
-        footer a:hover { border-bottom-color: #fff; opacity: 1; }
+        footer a:hover { opacity: 1; border-bottom-color: #fff; }
 
-        /* 移动端适配 */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .content h1 { font-size: 2.8rem; }
-            .btn { padding: 18px 40px; }
-            nav { padding: 30px 6%; }
+            .nav-links, .side-tag { display: none; }
+            .content h1 { font-size: 3rem; }
+            nav { padding: 35px 6%; }
         }
     </style>
 </head>
@@ -189,19 +203,20 @@
     </nav>
 
     <section class="hero">
-        <!-- 核心图片 -->
-        <img src="https://i.postimg.cc/ZqCwMBss/photo-2026-02-09-12-55-12.jpg" class="hero-img" alt="F Organics USA Portrait">
+        <!-- 经过 CSS 锐化处理的图片 -->
+        <img src="https://i.postimg.cc/ZqCwMBss/photo-2026-02-09-12-55-12.jpg" class="hero-img" alt="Mastery Landscape">
         
         <div class="overlay"></div>
+        <div class="side-tag">Biological Science & Pure Ritual</div>
 
         <div class="content">
             <span>By Anna Davis</span>
-            <h1>The New Standard <br> of Biological Ritual.</h1>
-            <a href="collection.html" class="btn">Explore The Collection</a>
+            <h1>The New Standard <br> of <i>Ritual.</i></h1>
+            <a href="collection.html" class="btn">Explore Now</a>
         </div>
 
         <footer>
-            &copy; 2026 F ORGANICS USA &nbsp; | &nbsp; CONTACT: <a href="mailto:anna@belle-soul.com">ANNA@BELLE-SOUL.COM</a>
+            &copy; 2026 F ORGANICS USA &nbsp; | &nbsp; <a href="mailto:anna@belle-soul.com">Contact Specialist</a>
         </footer>
     </section>
 

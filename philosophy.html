@@ -3,101 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Visionary | AURELLE</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-    
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
+    <title>Philosophy | F ORGANICS USA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
+        :root { --accent: #a8947e; --text: #1a1a1a; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #fff; color: #1a1a1a; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-
-        nav { position: fixed; top: 0; width: 100%; padding: 40px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100; mix-blend-mode: exclusion; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 24px; letter-spacing: 5px; text-transform: uppercase; text-decoration: none; color: #fff; font-weight: 500; }
-        .nav-links a { margin-left: 40px; text-decoration: none; color: #fff; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.8; }
-
-        .founder-container { display: flex; min-height: 100vh; }
-
-        .founder-image { flex: 1.1; position: sticky; top: 0; height: 100vh; background: #1a1a1a; overflow: hidden; }
-        .founder-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-        .founder-content { flex: 0.9; padding: 15vh 10% 10vh; background: #fff; display: flex; flex-direction: column; justify-content: center; }
-
-        .label { font-size: 10px; letter-spacing: 5px; color: #a8947e; text-transform: uppercase; margin-bottom: 20px; display: block; font-weight: 500; }
-        .founder-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 20px; color: #1a1a1a; }
-        
-        h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; line-height: 1.1; margin-bottom: 45px; letter-spacing: -1px; }
-
-        .intro-lead { font-size: 1.1rem; font-weight: 400; color: #000; margin-bottom: 40px; width: 90%; }
-        
-        .story-body p { margin-bottom: 25px; font-size: 0.95rem; color: #555; font-weight: 300; text-align: justify; line-height: 1.8; }
-
-        .quote-box { border-left: 2px solid #a8947e; padding-left: 30px; margin: 50px 0; }
-        .quote-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: #1a1a1a; line-height: 1.4; }
-
-        .signature { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.3rem; margin-top: 20px; color: #1a1a1a; }
-
-        .cta-link { display: inline-block; margin-top: 40px; text-decoration: none; color: #1a1a1a; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; border-bottom: 1px solid #ddd; padding-bottom: 5px; transition: 0.3s; }
-        .cta-link:hover { border-color: #000; }
-
-        @media (max-width: 1024px) {
-            .founder-container { flex-direction: column; }
-            .founder-image { height: 70vh; position: relative; }
-            .founder-content { padding: 80px 8%; }
-            h1 { font-size: 2.8rem; }
-            nav .logo, nav .nav-links a { color: #000; }
-            nav { mix-blend-mode: normal; background: rgba(255,255,255,0.9); padding: 20px 5%; }
-        }
+        body { font-family: 'Inter', sans-serif; background: #fff; color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+        nav { padding: 40px 5%; display: flex; justify-content: space-between; position: fixed; width: 100%; z-index: 100; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 18px; letter-spacing: 5px; text-decoration: none; color: #000; text-transform: uppercase; }
+        .nav-links a { margin-left: 35px; text-decoration: none; color: #666; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
+        .philosophy-container { display: flex; min-height: 100vh; align-items: stretch; }
+        .image-side { flex: 1.1; position: relative; overflow: hidden; }
+        .image-side img { width: 100%; height: 100vh; object-fit: cover; position: sticky; top: 0; }
+        .content-side { flex: 0.9; padding: 15vh 10%; display: flex; flex-direction: column; justify-content: center; background: #fff; }
+        .label { font-size: 10px; letter-spacing: 5px; color: var(--accent); text-transform: uppercase; margin-bottom: 25px; display: block; font-weight: 500; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; line-height: 1.1; margin-bottom: 40px; color: #000; }
+        .content-side p { font-size: 15px; color: #555; margin-bottom: 30px; max-width: 450px; }
+        .quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; color: var(--accent); border-left: 2px solid var(--accent); padding-left: 25px; margin-top: 20px; }
+        footer { padding: 40px 10%; font-size: 9px; letter-spacing: 2px; color: #aaa; text-transform: uppercase; border-top: 1px solid #f2f2f2; background: #fff; text-align: center; }
+        @media (max-width: 1024px) { .philosophy-container { flex-direction: column; } .image-side img { height: 60vh; position: relative; } .content-side { padding: 80px 10%; } h1 { font-size: 2.8rem; } }
     </style>
 </head>
 <body>
-
     <nav>
-        <a href="index.html" class="logo">AURELLE</a>
+        <a href="index.html" class="logo">F ORGANICS USA</a>
         <div class="nav-links">
-            <a href="collection.html">The Collection</a>
+            <a href="collection.html">Collection</a>
+            <a href="philosophy.html">Philosophy</a>
+            <a href="founder.html">Founder</a>
         </div>
     </nav>
-
-    <main class="founder-container">
-        <div class="founder-image">
-            <img src="https://i.postimg.cc/KYcxqW4C/danielapertsevaya-post-2022-11-28-15-59-562981331206415847110.jpg" alt="AURELLE Visionary">
-        </div>
-
-        <div class="founder-content">
-            <span class="label">The Visionary</span>
-            <div class="founder-name">Anna Davis</div>
-            <h1>The Science of Silent Luxury</h1>
-            
-            <p class="intro-lead">
-                "We do not follow trends; we study the biological rhythm of light and skin."
-            </p>
-
-            <div class="story-body">
-                <p>
-                    With a background in advanced molecular aesthetics and over $$15$$ years of research in barrier recovery, our founder established AURELLE with a singular mission: to strip away the noise of the beauty industry.
-                </p>
-                <p>
-                    Every formulation is a meticulous balance of bio-available nutrients and clinical precision. We believe that true radiance is the result of cellular health, achieved through rituals that respect the skin’s integrity.
-                </p>
-            </div>
-
-            <div class="quote-box">
-                <p class="quote-text">
-                    "Precision is the ultimate form of care. Every drop in our collection is engineered to deliver exactly what the skin requires, nothing more, nothing less."
-                </p>
-            </div>
-
-            <!-- Anna Davis 签名 -->
-            <div class="signature">
-                — Anna Davis
-            </div>
-
-            <a href="collection.html" class="cta-link">View The Collection</a>
+    <main class="philosophy-container">
+        <div class="image-side"><img src="https://i.postimg.cc/d1LbR83P/p7.png" alt="Philosophy"></div>
+        <div class="content-side">
+            <span class="label">The Ethos</span>
+            <h1>Organic Strength.<br>Scientific Precision.</h1>
+            <p>At F ORGANICS USA, we believe that true radiance is born from the harmony between nature’s raw vitality and the precision of Japanese skincare science.</p>
+            <p>Our formulations focus on the "intrinsic power" of botanical ingredients, carefully selected by Anna Davis to provide a restorative experience that transcends traditional beauty routines.</p>
+            <div class="quote">"Beauty is not an addition, but a restoration of one's natural resilience."</div>
         </div>
     </main>
-
+    <footer>
+        &copy; 2026 F ORGANICS USA &nbsp; | &nbsp; <a href="mailto:anna@belle-soul.com" style="color:inherit; text-decoration:none;">anna@belle-soul.com</a>
+    </footer>
 </body>
 </html>

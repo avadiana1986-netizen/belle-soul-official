@@ -3,36 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Collection | AURELLE</title>
+    <title>The Prestige Collection | F ORGANICS USA</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
+        :root { --accent: #a8947e; --text: #1a1a1a; --bg: #ffffff; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #fff; color: #1a1a1a; overflow: hidden; -webkit-font-smoothing: antialiased; }
-        
-        nav { padding: 30px 5%; display: flex; justify-content: space-between; position: fixed; top: 0; width: 100%; background: transparent; z-index: 100; }
-        .logo { font-family: 'Playfair Display', serif; text-decoration: none; color: #000; letter-spacing: 5px; font-size: 20px; text-transform: uppercase; }
-        .back-link { text-decoration: none; color: #000; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid transparent; transition: 0.3s; }
-        .back-link:hover { border-bottom: 1px solid #000; }
-
-        .collection-container { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; margin-bottom: 20px; }
-        p { font-size: 0.9rem; color: #666; letter-spacing: 1px; }
-
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+        nav { padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid #f2f2f2; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 18px; letter-spacing: 5px; text-decoration: none; color: #000; text-transform: uppercase; }
+        .nav-links a { margin-left: 35px; text-decoration: none; color: #666; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+        .collection-header { padding: 180px 5% 60px; text-align: center; }
+        .collection-header span { font-size: 10px; letter-spacing: 5px; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 15px; }
+        .collection-header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 400; }
+        .product-grid { max-width: 1400px; margin: 0 auto; padding: 0 5% 100px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px 30px; }
+        .product-card { text-decoration: none; color: inherit; display: block; transition: 0.4s; }
+        .image-container { position: relative; background: #fbfbfb; aspect-ratio: 1/1; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 40px; }
+        .image-container img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .product-card:hover .image-container img { transform: scale(1.05); }
+        .shop-tag { position: absolute; bottom: 20px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: 0; transition: 0.4s; color: var(--accent); border-bottom: 1px solid var(--accent); }
+        .product-card:hover .shop-tag { opacity: 1; }
+        .product-meta { padding-top: 25px; text-align: center; }
+        .brand { font-size: 9px; letter-spacing: 3px; color: #999; text-transform: uppercase; margin-bottom: 8px; display: block; }
+        .name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #1a1a1a; line-height: 1.4; min-height: 3em; }
+        footer { padding: 80px 5%; border-top: 1px solid #f2f2f2; text-align: center; font-size: 10px; letter-spacing: 2px; color: #aaa; text-transform: uppercase; }
+        @media (max-width: 1024px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .product-grid { grid-template-columns: 1fr; } .collection-header h1 { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
-
     <nav>
-        <a href="index.html" class="logo">AURELLE</a>
-        <a href="index.html" class="back-link">Back</a>
-    </nav>
-
-    <div class="collection-container">
-        <div>
-            <h1>The Collection</h1>
-            <p>Coming Fall 2026.</p>
+        <a href="index.html" class="logo">F ORGANICS USA</a>
+        <div class="nav-links">
+            <a href="collection.html">Collection</a>
+            <a href="philosophy.html">Philosophy</a>
+            <a href="founder.html">Founder</a>
         </div>
-    </div>
-
+    </nav>
+    <header class="collection-header">
+        <span>Curated Luxury Selection</span>
+        <h1>Prestige Beauty Archive</h1>
+    </header>
+    <main class="product-grid">
+        <!-- Product 1: Sensai -->
+        <a href="https://ichibanm.com/products/sensai-utm-the-cleansing-oil" class="product-card" target="_blank">
+            <div class="image-container"><img src="https://i.postimg.cc/Pfvym6Xw/p1.webp" alt="Sensai"><div class="shop-tag">Discover</div></div>
+            <div class="product-meta"><span class="brand">Sensai</span><h2 class="name">UTM The Cleansing Oil</h2></div>
+        </a>
+        <!-- Product 2: Hacci -->
+        <a href="https://ichibanm.com/products/hacci-ornament-snow" class="product-card" target="_blank">
+            <div class="image-container"><img src="https://i.postimg.cc/wxR2hWqQ/p2.jpg" alt="Hacci"><div class="shop-tag">Discover</div></div>
+            <div class="product-meta"><span class="brand">Hacci</span><h2 class="name">Ornament Snow Limited Edition</h2></div>
+        </a>
+        <!-- Product 3: CPB -->
+        <a href="https://ichibanm.com/products/cle-de-peau-beaute-synactif-cream" class="product-card" target="_blank">
+            <div class="image-container"><img src="https://i.postimg.cc/pV5CD0W8/p3.webp" alt="Cle de Peau"><div class="shop-tag">Discover</div></div>
+            <div class="product-meta"><span class="brand">Clé de Peau Beauté</span><h2 class="name">Synactif Intensive Cream</h2></div>
+        </a>
+        <!-- Product 4: Decorte -->
+        <a href="https://ichibanm.com/products/decorte-aq-meliority-intensive-regenerating-multi-cream" class="product-card" target="_blank">
+            <div class="image-container"><img src="https://i.postimg.cc/2ydB0L9s/p4.webp" alt="Decorte"><div class="shop-tag">Discover</div></div>
+            <div class="product-meta"><span class="brand">Decorté</span><h2 class="name">AQ Meliority Regenerating Multi Cream</h2></div>
+        </a>
+        <!-- Product 5: Helena Rubinstein -->
+        <a href="https://ichibanm.com/products/helena-rubinstein-prodigy-cellglow-essence-emulsion?variant=39726573387960" class="product-card" target="_blank">
+            <div class="image-container"><img src="https://i.postimg.cc/v8xhWPYn/p5.webp" alt="HR"><div class="shop-tag">Discover</div></div>
+            <div class="product-meta"><span class="brand">Helena Rubinstein</span><h2 class="name">Prodigy Cellglow Essence Emulsion</h2></div>
+        </a>
+        <!-- Product 6: The Ginza -->
+        <a href="https://ichibanm.com/products/the-ginza-essence-empowering-p" class="product-card" target="_blank">
+            <div class="image-container"><img src="https://i.postimg.cc/MZf5ys6y/p6.webp" alt="The Ginza"><div class="shop-tag">Discover</div></div>
+            <div class="product-meta"><span class="brand">The Ginza</span><h2 class="name">Essence Empowering P Day/Night</h2></div>
+        </a>
+    </main>
+    <footer>
+        &copy; 2026 F ORGANICS USA &nbsp; | &nbsp; Partnered with Ichiban Mart
+        <br><br>
+        Enquiries: <a href="mailto:anna@belle-soul.com" style="color:inherit; text-decoration:none;">anna@belle-soul.com</a>
+    </footer>
 </body>
 </html>

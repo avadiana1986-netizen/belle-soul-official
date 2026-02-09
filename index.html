@@ -4,25 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F ORGANICS USA | Pure Biological Skincare</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
+        :root { --main-text: #1a1a1a; --accent: #a8947e; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #fff; color: #1a1a1a; overflow-x: hidden; }
-        nav { padding: 40px 5%; display: flex; justify-content: space-between; align-items: center; position: absolute; width: 100%; top: 0; z-index: 10; }
-        .logo { font-family: 'Inter', sans-serif; font-weight: 300; letter-spacing: 4px; font-size: 14px; text-decoration: none; color: #1a1a1a; text-transform: uppercase; }
-        .nav-links a { text-decoration: none; color: #1a1a1a; margin-left: 40px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; }
-        .nav-links a:hover { color: #a8947e; }
-        .hero { height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; position: relative; }
-        .hero-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: brightness(0.9); }
-        .hero-text { text-align: center; color: #fff; text-shadow: 0 2px 15px rgba(0,0,0,0.2); }
-        .hero-text span { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; display: block; margin-bottom: 20px; }
-        .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 400; letter-spacing: 2px; line-height: 1.2; margin-bottom: 40px; }
-        .btn { display: inline-block; padding: 15px 40px; border: 1px solid #fff; color: #fff; text-decoration: none; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; transition: all 0.3s ease; }
-        .btn:hover { background: #fff; color: #000; }
-        .footer-minimal { position: absolute; bottom: 30px; width: 100%; text-align: center; color: rgba(255,255,255,0.9); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; z-index: 5; }
-        .footer-minimal a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 2px; transition: 0.3s; }
-        .footer-minimal a:hover { border-bottom-color: #fff; opacity: 1; }
-        @media (max-width: 768px) { .hero-text h1 { font-size: 2.5rem; } .nav-links { display: none; } }
+        body { font-family: 'Inter', sans-serif; background: #fff; color: var(--main-text); overflow: hidden; -webkit-font-smoothing: antialiased; }
+        
+        /* 布局控制：分屏式铺满 */
+        .hero { 
+            height: 100vh; 
+            width: 100%; 
+            display: flex; 
+            align-items: center; 
+            background: #fdfdfd;
+            position: relative;
+        }
+
+        /* 左侧文字区 */
+        .hero-content {
+            width: 45%;
+            padding: 0 8%;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* 右侧图片区：撑满剩余空间 */
+        .hero-visual {
+            width: 55%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-img { 
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            transition: transform 8s ease;
+            animation: slowZoom 20s infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        nav { 
+            padding: 40px 6%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: absolute; 
+            width: 100%; 
+            top: 0; 
+            z-index: 100; 
+        }
+
+        .logo { 
+            font-family: 'Inter', sans-serif; 
+            font-weight: 300; 
+            letter-spacing: 6px; 
+            font-size: 14px; 
+            text-decoration: none; 
+            color: #000;
+            text-transform: uppercase; 
+        }
+
+        .nav-links a { 
+            text-decoration: none; 
+            color: #444; 
+            margin-left: 40px; 
+            font-size: 11px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            transition: 0.4s;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        /* 文字排版优化 */
+        .hero-text span { 
+            font-size: 12px; 
+            letter-spacing: 8px; 
+            text-transform: uppercase; 
+            display: block; 
+            margin-bottom: 30px; 
+            font-weight: 300;
+            color: var(--accent);
+        }
+
+        .hero-text h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(2.5rem, 4.5vw, 4rem); 
+            font-weight: 400; 
+            line-height: 1.15; 
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+
+        .btn { 
+            display: inline-block; 
+            padding: 18px 45px; 
+            border: 1px solid #1a1a1a; 
+            color: #1a1a1a; 
+            text-decoration: none; 
+            font-size: 11px; 
+            letter-spacing: 4px; 
+            text-transform: uppercase; 
+            transition: 0.4s ease;
+            position: relative;
+        }
+
+        .btn:hover { 
+            background: #1a1a1a; 
+            color: #fff; 
+        }
+
+        /* 底部邮箱 - 放在侧边文字区底部 */
+        .footer-info { 
+            margin-top: 100px;
+            color: #999; 
+            font-size: 10px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+        }
+
+        .footer-info a { 
+            color: #1a1a1a; 
+            text-decoration: none; 
+            border-bottom: 1px solid #ddd;
+            transition: 0.3s;
+        }
+
+        /* 移动端适配：改为上下堆叠 */
+        @media (max-width: 992px) {
+            body { overflow: auto; }
+            .hero { flex-direction: column; height: auto; }
+            .hero-content { width: 100%; padding: 140px 10% 60px; text-align: center; }
+            .hero-visual { width: 100%; height: 70vh; }
+            .nav-links { display: none; }
+            .footer-info { margin-top: 40px; }
+        }
     </style>
 </head>
 <body>
@@ -34,17 +160,26 @@
             <a href="founder.html">Founder</a>
         </div>
     </nav>
+
     <section class="hero">
-        <!-- 这里是您提供的新图片链接 -->
-        <img src="https://i.postimg.cc/6q7HDs1H/photo-2026-02-09-11-00-31.jpg" class="hero-img" alt="F Organics Hero">
-        <div class="hero-text">
-            <span>By Anna Davis</span>
-            <h1>The New Standard <br> of Ritual.</h1>
-            <a href="collection.html" class="btn">Explore The Collection</a>
+        <!-- 左侧信息区：填充品牌核心内容 -->
+        <div class="hero-content">
+            <div class="hero-text">
+                <span>By Anna Davis</span>
+                <h1>The New Standard <br> of Biological <br> Ritual.</h1>
+                <a href="collection.html" class="btn">Explore Collection</a>
+            </div>
+            
+            <div class="footer-info">
+                &copy; 2026 F ORGANICS USA <br><br>
+                CONTACT: <a href="mailto:anna@belle-soul.com">ANNA@BELLE-SOUL.COM</a>
+            </div>
+        </div>
+
+        <!-- 右侧视觉区：不留白，完整填充且带动态效果 -->
+        <div class="hero-visual">
+            <img src="https://i.postimg.cc/6q7HDs1H/photo-2026-02-09-11-00-31.jpg" class="hero-img" alt="F Organics USA Portrait">
         </div>
     </section>
-    <div class="footer-minimal">
-        &copy; 2026 F ORGANICS USA &nbsp; | &nbsp; Contact: <a href="mailto:anna@belle-soul.com">anna@belle-soul.com</a>
-    </div>
 </body>
 </html>

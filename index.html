@@ -4,47 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F ORGANICS USA | Pure Biological Skincare</title>
+    <!-- 引入高级字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
-        :root { --main-text: #1a1a1a; --accent: #a8947e; }
+        :root {
+            --accent-color: #a8947e;
+            --text-white: #ffffff;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #fff; color: var(--main-text); overflow: hidden; -webkit-font-smoothing: antialiased; }
         
-        /* 布局控制：分屏式铺满 */
-        .hero { 
-            height: 100vh; 
-            width: 100%; 
-            display: flex; 
-            align-items: center; 
-            background: #fdfdfd;
-            position: relative;
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #000; 
+            color: var(--text-white); 
+            overflow: hidden; /* 保持首屏沉浸感 */
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* 左侧文字区 */
-        .hero-content {
-            width: 45%;
-            padding: 0 8%;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* 右侧图片区：撑满剩余空间 */
-        .hero-visual {
-            width: 55%;
+        /* 背景容器与呼吸感动画 */
+        .hero {
             height: 100vh;
+            width: 100%;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
         }
 
-        .hero-img { 
+        .hero-img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 20%;
-            transition: transform 8s ease;
-            animation: slowZoom 20s infinite alternate;
+            object-position: center 30%; /* 确保图片主体居中 */
+            z-index: 1;
+            filter: brightness(0.85); /* 稍微调暗，提升文字可读性 */
+            animation: slowZoom 20s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
         }
 
         @keyframes slowZoom {
@@ -52,106 +51,134 @@
             to { transform: scale(1.1); }
         }
 
-        nav { 
-            padding: 40px 6%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: absolute; 
-            width: 100%; 
-            top: 0; 
-            z-index: 100; 
+        /* 渐变遮罩：让底部和顶部信息更清晰 */
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, 
+                rgba(0,0,0,0.3) 0%, 
+                rgba(0,0,0,0) 40%, 
+                rgba(0,0,0,0) 60%, 
+                rgba(0,0,0,0.4) 100%);
+            z-index: 2;
         }
 
-        .logo { 
-            font-family: 'Inter', sans-serif; 
-            font-weight: 300; 
-            letter-spacing: 6px; 
-            font-size: 14px; 
-            text-decoration: none; 
-            color: #000;
-            text-transform: uppercase; 
+        /* 极简导航 */
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 45px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
         }
 
-        .nav-links a { 
-            text-decoration: none; 
-            color: #444; 
-            margin-left: 40px; 
-            font-size: 11px; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-            transition: 0.4s;
-            font-weight: 400;
-        }
-
-        .nav-links a:hover { color: var(--accent); }
-
-        /* 文字排版优化 */
-        .hero-text span { 
-            font-size: 12px; 
-            letter-spacing: 8px; 
-            text-transform: uppercase; 
-            display: block; 
-            margin-bottom: 30px; 
+        .logo {
+            font-size: 16px;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-white);
             font-weight: 300;
-            color: var(--accent);
         }
 
-        .hero-text h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: clamp(2.5rem, 4.5vw, 4rem); 
-            font-weight: 400; 
-            line-height: 1.15; 
-            margin-bottom: 50px;
-            color: #1a1a1a;
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            margin-left: 40px;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: 0.4s;
+            opacity: 0.8;
         }
 
-        .btn { 
-            display: inline-block; 
-            padding: 18px 45px; 
-            border: 1px solid #1a1a1a; 
-            color: #1a1a1a; 
-            text-decoration: none; 
-            font-size: 11px; 
-            letter-spacing: 4px; 
-            text-transform: uppercase; 
-            transition: 0.4s ease;
+        .nav-links a:hover { opacity: 1; color: var(--accent-color); }
+
+        /* 中心内容 */
+        .content {
             position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
         }
 
-        .btn:hover { 
-            background: #1a1a1a; 
-            color: #fff; 
+        .content span {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            font-weight: 200;
+            opacity: 0.9;
         }
 
-        /* 底部邮箱 - 放在侧边文字区底部 */
-        .footer-info { 
-            margin-top: 100px;
-            color: #999; 
-            font-size: 10px; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
+        .content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.8rem);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
         }
 
-        .footer-info a { 
-            color: #1a1a1a; 
-            text-decoration: none; 
-            border-bottom: 1px solid #ddd;
+        .btn {
+            display: inline-block;
+            padding: 20px 50px;
+            border: 1px solid rgba(255,255,255,0.4);
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            backdrop-filter: blur(8px); /* 磨砂玻璃效果 */
+            background: rgba(255,255,255,0.05);
+        }
+
+        .btn:hover {
+            background: #fff;
+            color: #000;
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* 底部信息 */
+        footer {
+            position: absolute;
+            bottom: 40px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+            font-size: 10px;
+            letter-spacing: 3px;
+            opacity: 0.7;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 3px;
             transition: 0.3s;
         }
 
-        /* 移动端适配：改为上下堆叠 */
-        @media (max-width: 992px) {
-            body { overflow: auto; }
-            .hero { flex-direction: column; height: auto; }
-            .hero-content { width: 100%; padding: 140px 10% 60px; text-align: center; }
-            .hero-visual { width: 100%; height: 70vh; }
+        footer a:hover { border-bottom-color: #fff; opacity: 1; }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
             .nav-links { display: none; }
-            .footer-info { margin-top: 40px; }
+            .content h1 { font-size: 2.8rem; }
+            .btn { padding: 18px 40px; }
+            nav { padding: 30px 6%; }
         }
     </style>
 </head>
 <body>
+
     <nav>
         <a href="index.html" class="logo">F ORGANICS USA</a>
         <div class="nav-links">
@@ -162,24 +189,21 @@
     </nav>
 
     <section class="hero">
-        <!-- 左侧信息区：填充品牌核心内容 -->
-        <div class="hero-content">
-            <div class="hero-text">
-                <span>By Anna Davis</span>
-                <h1>The New Standard <br> of Biological <br> Ritual.</h1>
-                <a href="collection.html" class="btn">Explore Collection</a>
-            </div>
-            
-            <div class="footer-info">
-                &copy; 2026 F ORGANICS USA <br><br>
-                CONTACT: <a href="mailto:anna@belle-soul.com">ANNA@BELLE-SOUL.COM</a>
-            </div>
+        <!-- 核心图片 -->
+        <img src="https://i.postimg.cc/ZqCwMBss/photo-2026-02-09-12-55-12.jpg" class="hero-img" alt="F Organics USA Portrait">
+        
+        <div class="overlay"></div>
+
+        <div class="content">
+            <span>By Anna Davis</span>
+            <h1>The New Standard <br> of Biological Ritual.</h1>
+            <a href="collection.html" class="btn">Explore The Collection</a>
         </div>
 
-        <!-- 右侧视觉区：不留白，完整填充且带动态效果 -->
-        <div class="hero-visual">
-            <img src="https://i.postimg.cc/6q7HDs1H/photo-2026-02-09-11-00-31.jpg" class="hero-img" alt="F Organics USA Portrait">
-        </div>
+        <footer>
+            &copy; 2026 F ORGANICS USA &nbsp; | &nbsp; CONTACT: <a href="mailto:anna@belle-soul.com">ANNA@BELLE-SOUL.COM</a>
+        </footer>
     </section>
+
 </body>
 </html>
